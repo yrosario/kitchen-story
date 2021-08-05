@@ -1,10 +1,14 @@
 package com.kitchenstory.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +25,10 @@ public class Customer {
 	@Column(name="last_name")
 	private String lName;
 
+	@OneToMany(mappedBy="customer")
+	private List<Cart> carts = new ArrayList<Cart>();
+	
+	
 	protected Customer() {
 		this.id = null;
 	}
@@ -51,6 +59,15 @@ public class Customer {
 
 	public Long getId() {
 		return id;
+	}
+	
+
+	public List<Cart> getCarts() {
+		return carts;
+	}
+
+	public void setCarts(Cart cart) {
+		this.carts.add(cart);
 	}
 
 	@Override
