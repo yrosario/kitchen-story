@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,12 +20,17 @@ public class Product {
 	private Integer quantity;
 	private Float cost;
 	
+	@ManyToOne
+	private Cart cart;
+	
+	@ManyToOne
+	private Category categories;
+	
+	
 	protected Product() {
 		this.id = null;
 	}
 	
-	
-
 	protected Product(String name, String category, Integer quantity) {
 		this();
 		this.name = name;
