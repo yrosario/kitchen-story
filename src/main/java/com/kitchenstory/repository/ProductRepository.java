@@ -2,8 +2,8 @@ package com.kitchenstory.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import com.kitchenstory.model.Customer;
+import com.kitchenstory.model.Product;
 
-public interface ProductRepository extends CrudRepository<Customer, Long> {
+public interface ProductRepository extends CrudRepository<Product, Long> {
 
 }
